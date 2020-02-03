@@ -1,29 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Header @handleSearch="searchPost"></Header>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import {Vue, Component} from 'vue-property-decorator';
+import Header from "@/components/Header.vue";
 
-export default Vue.extend({
-  name: 'app',
-  components: {
-    HelloWorld
+@Component({
+  name: "app",
+  components:{
+    Header
   }
-});
-</script>
+})
+export default class App extends Vue{
 
+  private searchPost(value : string) : void {
+    console.log(value)
+  }
+}
+
+
+</script>
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+*, *::before, *::after{
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
 }
 </style>
